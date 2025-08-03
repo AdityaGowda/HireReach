@@ -3,9 +3,9 @@ const { initialMail, followUpMail } = require("../mailTemplates/mailTemp");
 const { sendMail } = require("../nodemailer/sendMail");
 require("dotenv").config();
 
-const statusCol = 4; // E
-const actionCol = 5; // F
-const dateCol = 6; // G
+const statusCol = 3; // E
+const actionCol = 4; // F
+const dateCol = 5; // G
 
 function isThreeDaysPassed(sentDateStr) {
   if (!sentDateStr) return false;
@@ -38,11 +38,11 @@ async function mailToHR() {
     }
 
     const mailOptions = {
-      from: `Adithya M R <adhimakkimane99@gmail.com>`,
+      from: `${process.env.USER_NAME} <${process.env.MAIL_ID}>`,
       to: email,
       subject: mailTemplate.subject,
       text: mailTemplate.text.replace("[HR Name]", hrName),
-      replyTo: "adhimakkimane99@gmail.com",
+      replyTo: `${process.env.MAIL_ID}`,
       headers: {
         "X-Priority": "3",
       },

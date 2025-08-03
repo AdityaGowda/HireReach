@@ -3,7 +3,7 @@ const { GoogleAuth } = require("google-auth-library");
 const { google } = require("googleapis");
 
 const auth = new GoogleAuth({
-  keyFile: "../sheetAccessAuth.json",
+  keyFile: "sheetAccessAuth.json",
   scopes: "https://www.googleapis.com/auth/spreadsheets",
 });
 
